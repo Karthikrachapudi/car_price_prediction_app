@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 streamlit
 pandas
 numpy
 scikit-learn
-=======
-streamlit
-pandas
-numpy
-scikit-learn
->>>>>>> 647e4b0a1d71e6435c137b537308ba5ed671e3eb
