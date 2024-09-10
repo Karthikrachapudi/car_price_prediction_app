@@ -1,10 +1,13 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
+import joblib
 
-# Use the model you trained in Step 7
-model = best_model  # Reference the trained model variable
+# Load the trained model from the file
+model = joblib.load('best_model.pkl')
+
+# List of columns used during training
+columns = ['City', 'Kilometers Driven', 'Fuel Type_Petrol', 'Transmission_Manual']  # Example, replace with your actual columns
 
 # Title and description for the Streamlit app
 st.title("Used Car Price Prediction App")
@@ -24,16 +27,16 @@ input_data = pd.DataFrame({
     'Transmission_Manual': [1 if transmission == "Manual" else 0]
 })
 
-# One-hot encode the 'City' column (make sure the one-hot encoding matches your model training data)
+# One-hot encode the 'City' column
 input_data = pd.get_dummies(input_data)
 
-# Add missing columns to match the model's training format (columns your model expects but aren't in the input)
-missing_cols = set(X_train.columns) - set(input_data.columns)
+# Add missing columns to match the model's training format
+missing_cols = set(columns) - set(input_data.columns)
 for col in missing_cols:
     input_data[col] = 0
 
 # Reorder columns to match the training data
-input_data = input_data[X_train.columns]
+input_data = input_data[columns]
 
 # Make predictions using the trained model
 predicted_price = model.predict(input_data)
