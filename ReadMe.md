@@ -22,9 +22,9 @@ The dataset used for this project was obtained from CarDekho. It includes variou
 - The model was trained using a **Random Forest Regressor**.
 - Hyperparameter tuning was performed using **GridSearchCV**.
 - Model evaluation metrics:
-  - **Mean Absolute Error (MAE)**: 9,371.98
-  - **Mean Squared Error (MSE)**: 383,260,783.85
-  - **R-squared (R2)**: 0.66
+  - **Mean Absolute Error (MAE)**: 25.65008960573479
+  - **Mean Squared Error (MSE)**: 76220.96748811219
+  - **R-squared (R2)**: 0.9999320763225981
 
 ## How to Run the App
 1. Clone this repository:
